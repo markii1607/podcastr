@@ -1,4 +1,6 @@
 import LeftSidebar from "@/components/LeftSidebar";
+import MobileNav from "@/components/MobileNav";
+import RightSidebar from "@/components/RightSidebar";
 import Image from "next/image";
 
 export default function RootLayout({
@@ -13,14 +15,14 @@ export default function RootLayout({
         <LeftSidebar />
         
         {/* MAIN CONTENT */}
-        <section>
-          <div>
-            <div>
-              <Image />
-              MobileNav
+        <section className="flex min-h-screen flex-1 flex-col p-4 sm:p-14">
+          <div className="mx-auto flex w-full max-w-5xlflex-col max-sm:px-4">
+            <div className="flex h-16 items-center justify-between md:hidden">
+              <Image src="/icons/logo.svg" width={30} height={30} alt="menu icon" />
+              <MobileNav />
             </div>
 
-            <div>
+            <div className="flex flex-col md:pb-14">
               Toasters
               {children}
             </div>
@@ -28,6 +30,7 @@ export default function RootLayout({
         </section>
         
         {/* RIGHT SIDEBAR */}
+        <RightSidebar />
       </main>
     </div>
   );
